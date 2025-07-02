@@ -1,0 +1,240 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* iOS-inspired color scheme */
+    --ios-primary: 0 122 255; /* #007AFF */
+    --ios-secondary: 255 59 48; /* #FF3B30 */
+    --ios-success: 52 199 89; /* #34C759 */
+    --ios-background: 242 242 247; /* #F2F2F7 */
+    --ios-card: 255 255 255; /* #FFFFFF */
+    --ios-text: 28 28 30; /* #1C1C1E */
+    --ios-text-secondary: 99 99 102; /* #636366 */
+    --ios-border: 199 199 204; /* #C7C7CC */
+    --ios-disabled: 174 174 178; /* #AEAEB2 */
+    
+    /* Existing variables for compatibility */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    background-color: #F2E2B1;
+    color: #3B3B1A;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+  }
+
+  /* Enhanced button styles */
+  .ios-button {
+    @apply px-6 py-3 rounded-2xl font-semibold text-base transition-all duration-300 active:scale-95 shadow-lg;
+  }
+
+  .ios-button-primary {
+    background: linear-gradient(135deg, #AEC8A4, #8A784E);
+    color: #3B3B1A;
+    box-shadow: 0 4px 15px rgba(174, 200, 164, 0.3);
+  }
+
+  .ios-button-primary:hover {
+    background: linear-gradient(135deg, #8A784E, #AEC8A4);
+    box-shadow: 0 6px 20px rgba(174, 200, 164, 0.4);
+  }
+
+  .ios-button-secondary {
+    background: rgba(174, 200, 164, 0.2);
+    color: #3B3B1A;
+    border: 2px solid #AEC8A4;
+  }
+
+  .ios-button-secondary:hover {
+    background: rgba(174, 200, 164, 0.3);
+    border-color: #8A784E;
+  }
+
+  /* Enhanced letter tile styles */
+  .letter-tile {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 1rem;
+    background: rgba(174, 200, 164, 0.3);
+    border: 2px solid #AEC8A4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #3B3B1A;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: 0 4px 15px rgba(138, 120, 78, 0.2);
+  }
+
+  .letter-tile:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(138, 120, 78, 0.3);
+    background: rgba(174, 200, 164, 0.4);
+  }
+
+  .letter-tile-selected {
+    background: linear-gradient(135deg, #8A784E, #AEC8A4);
+    color: #F2E2B1;
+    border-color: #8A784E;
+    box-shadow: 0 6px 20px rgba(138, 120, 78, 0.4);
+  }
+
+  .letter-tile-used {
+    background: rgba(138, 120, 78, 0.2);
+    color: #8A784E;
+    border-color: #8A784E;
+    cursor: not-allowed;
+  }
+
+  /* Enhanced card styles */
+  .ios-card {
+    background: rgba(174, 200, 164, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 32px rgba(138, 120, 78, 0.2);
+    border: 1px solid rgba(174, 200, 164, 0.3);
+  }
+
+  /* Animated gradient background */
+  .gradient-bg {
+    background: linear-gradient(-45deg, #667eea, #764ba2, #6b73ff, #9bafd9);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Pulse animation for timer */
+  .pulse-red {
+    animation: pulseRed 1s ease-in-out infinite;
+  }
+
+  @keyframes pulseRed {
+    0%, 100% { color: rgb(239 68 68); }
+    50% { color: rgb(185 28 28); }
+  }
+
+  /* Word submission animation */
+  .word-success {
+    animation: wordSuccess 0.6s ease-out;
+  }
+
+  @keyframes wordSuccess {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+  }
+
+  /* Input styles */
+  .ios-input {
+    @apply w-full px-4 py-3 bg-ios-card border border-ios-border rounded-xl text-ios-text focus:outline-none focus:ring-2 focus:ring-ios-primary focus:border-transparent;
+  }
+  
+  .ios-input::placeholder {
+    color: rgb(var(--ios-text-secondary));
+  }
+}
+
+@layer utilities {
+  .bg-ios-primary {
+    background-color: rgb(var(--ios-primary));
+  }
+  
+  .bg-ios-secondary {
+    background-color: rgb(var(--ios-secondary));
+  }
+  
+  .bg-ios-success {
+    background-color: rgb(var(--ios-success));
+  }
+  
+  .bg-ios-background {
+    background-color: rgb(var(--ios-background));
+  }
+  
+  .bg-ios-card {
+    background-color: rgb(var(--ios-card));
+  }
+  
+  .bg-ios-disabled {
+    background-color: rgb(var(--ios-disabled));
+  }
+  
+  .text-ios-primary {
+    color: rgb(var(--ios-primary));
+  }
+  
+  .text-ios-secondary {
+    color: rgb(var(--ios-secondary));
+  }
+  
+  .text-ios-success {
+    color: rgb(var(--ios-success));
+  }
+  
+  .text-ios-text {
+    color: rgb(var(--ios-text));
+  }
+  
+  .text-ios-text-secondary {
+    color: rgb(var(--ios-text-secondary));
+  }
+  
+  .border-ios-primary {
+    border-color: rgb(var(--ios-primary));
+  }
+  
+  .border-ios-border {
+    border-color: rgb(var(--ios-border));
+  }
+  
+  .border-ios-disabled {
+    border-color: rgb(var(--ios-disabled));
+  }
+  
+  .ring-ios-primary {
+    --tw-ring-color: rgb(var(--ios-primary));
+  }
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
